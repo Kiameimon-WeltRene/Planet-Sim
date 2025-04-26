@@ -93,6 +93,28 @@ Learn more:
 
 ---
 
+### Orbital Accuracy Test
+
+To validate the accuracy of the simulation's gravitational model and numerical integrator (leapfrog), each planet in the solar system (including Pluto) was simulated for **30 orbits** under default conditions. The real-life orbital periods were compared against their simulated averages. The timescale was set to 1e7 (i.e in every second in real-life, 1e7 seconds passes in the simulator).
+
+**Note**: All times are in **seconds**.
+
+| Planet  | Real Orbital Period | Simulated Orbital Period (avg over 30 orbits) | Error Margin |
+|---------|---------------------|-----------------------------------------------|--------------|
+| Mercury | 7.60×10⁶            | 7.36×10⁶                                      | 3.19%        |
+| Venus   | 1.94×10⁷            | 1.94×10⁷                                      | 0.38%        |
+| Earth   | 3.15×10⁷            | 3.23×10⁷                                      | 2.52%        |
+| Mars    | 5.94×10⁷            | 5.86×10⁷                                      | 1.22%        |
+| Jupiter | 3.74×10⁸            | 3.69×10⁸                                      | 1.55%        |
+| Saturn  | 9.30×10⁸            | 9.34×10⁸                                      | 0.45%        |
+| Uranus  | 2.65×10⁹            | 2.64×10⁹                                      | 0.29%        |
+| Neptune | 5.20×10⁹            | 5.09×10⁹                                      | 2.16%        |
+| Pluto   | 7.82×10⁹            | 7.60×10⁹                                      | 2.86%        |
+
+*Reference: [NASA Space Place](https://spaceplace.nasa.gov/years-on-other-planets/en/)*
+
+---
+
 ## Visual Scaling System
 
 ### Rationale
