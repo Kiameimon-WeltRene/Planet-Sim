@@ -83,8 +83,10 @@ The simulation uses **Leapfrog integration**, a symplectic method that:
 - Efficiently handles gravitational acceleration for multiple bodies ($O(n^2)$)
 
 ```math
-x_{n+1} = x_n + v_nΔt + \frac{1}{2}a_nΔt^2 \\
-v_{n+1} = v_n + \frac{1}{2}(a_n + a_{n+1})Δt
+x_{n+1} = x_n + v_n\Delta t + \frac{1}{2}a_n\Delta t^2
+```
+```math
+v_{n+1} = v_n + \frac{1}{2}(a_n + a_{n+1})\Delta t
 ```
 
 Learn more:  
@@ -192,6 +194,6 @@ Recommended to avoid simulation instability or overflow:
 
 ### Advanced Optimizations
 
-- **Barnes-Hut Octree**: Reduces N-body complexity from O(n²) to O(n log n)
+- **Barnes-Hut Octree**: Reduces N-body complexity from $O(n^2)$ to $O(n \log n)$
 - **GPU Compute Shaders**: Enable real-time simulation of thousands of bodies
 - **Level of Detail (LOD)**: Improve performance with scalable mesh/texture quality
