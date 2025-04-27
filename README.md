@@ -80,7 +80,7 @@ void Start() {
 The simulation uses **Leapfrog integration**, a symplectic method that:
 - Preserves energy over time
 - Avoids numerical instability common in Euler integration
-- Efficiently handles gravitational acceleration for multiple bodies ($O(n^2)$)
+- Efficiently handles gravitational acceleration for multiple bodies \( $O(n^2)$ \)
 
 ```math
 x_{n+1} = x_n + v_n\Delta t + \frac{1}{2}a_n\Delta t^2
