@@ -172,7 +172,7 @@ Recommended to avoid simulation instability or overflow:
 
 | Parameter | Range |
 |----------|--------|
-| Mass | \(10^{-10}\) to \(10^{15}\) Earth masses |
+| Mass | 1e-10 to 1e15 Earth masses |
 | Radius | 0.1 to 100 Earth radii |
 | Timelapse | 100 to 1e8 sec/sec |
 | Camera distance | 100 to 1e7 Earth radii |
