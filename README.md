@@ -188,12 +188,23 @@ Recommended to avoid simulation instability or overflow:
 | **UI-based planet editor** | Add bodies interactively, no coding required |
 | **Trail renderer** | Visually track orbital paths |
 | **Save/load system** | Reuse and share simulations |
-| **Collision detection** | Handle planetary interactions (e.g. merging, bouncing)
+| **Collision detection** | Handle planet collisions (this is currently ignored) |
+
+**Notes:**
+- Because there is currently no feature for handling collision, when 2 planets collide, it is likely to cause bugs where the planet(s) is/are launched upon colliding. This is due to the distance between them getting extremely small, resulting in a *very* strong gravitational acceleration between the two bodies.
+
+
+### About moons
+I attempted to add a moon orbiting the Earth. However, at timescale around `1e6`, the moon orbits earth much faster than it should, and at a timescale of `1e7`, the leaves the Earth's orbit, orbiting the sun like any other planet instead. I believe this is due to the error term of leapfrog integration.
+Furthermore, with the current visual scaling system, the moon would not be visible as the Earth's visual radius is greater than its distance from the moon.
+
+- To fix the first issue, one could use more iterations (see: `iterationsPerUpdate` in `Assets/Project/Scripts/Controllers/Simulator.cs`) of leapfrog integration, or use its improved variant, the [Yoshida integrator](https://en.wikipedia.org/wiki/Leapfrog_integration#4th_order_Yoshida_integrator), a 4th order symplectic integrator. However, this comes at the cost of additional computational power.
+- The second issue is trickier. Restricting the planets' visual radius to be less than the shortest distance between any two planets may lead to unvisiblity. One consideration I had in mind was to set benchmarks such that when the camera is within a certain distance from a planet, it re-scales the visual appearance of all nearby planets/moons. However, I have yet to implement this.
 
 ---
 
 ### Advanced Optimizations
 
 - **Barnes-Hut Octree**: Reduces N-body complexity from $O(n^2)$ to $O(n \log n)$
-- **GPU Compute Shaders**: Enable real-time simulation of thousands of bodies
+- **GPU Compute Shaders**: Enable real-time simulation of thousands of bodies through parallelization
 - **Level of Detail (LOD)**: Improve performance with scalable mesh/texture quality
